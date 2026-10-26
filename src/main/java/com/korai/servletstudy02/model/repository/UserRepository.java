@@ -24,7 +24,6 @@ public class UserRepository {
 
     public void insert(User user) {
         user.setId(lastId++);
-        ;
         users.add(user);
     }
 
