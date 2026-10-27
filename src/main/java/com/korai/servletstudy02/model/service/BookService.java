@@ -1,18 +1,16 @@
 package com.korai.servletstudy02.model.service;
 
 import com.korai.servletstudy02.exception.DuplicatedException;
-import com.korai.servletstudy02.model.User;
+import com.korai.servletstudy02.model.Book;
 import com.korai.servletstudy02.model.repository.BookRepository;
-import com.korai.servletstudy02.model.repository.UserRepository;
 
 import java.util.List;
 
 public class BookService {
     private static BookService instance;
-    private BookRepository BookRepository;
+    private BookRepository bookRepository;
 
-    private BookService(BookRepository bookRepository) {
-        this.BookRepository = bookRepository;
+    private BookService(BookRepository bookRepository) {this.bookRepository = bookRepository;
     }
 
     public static BookService getInstance() {
@@ -22,18 +20,18 @@ public class BookService {
         return instance;
     }
 
-    public void register(User user) throws DuplicatedException {
-        if(isDuplicatedUsername(user.getUsername())){
-            throw new DuplicatedException("이미 존재하는 사용자이름 입니다.");
+    public void register(Book book) throws DuplicatedException {
+        if(isDuplicatedBookname(book.getBookName())){
+            throw new DuplicatedException("이미 존재하는 책 입니다.");
         }
-        userRepository.insert(user);
+        bookRepository.insert(book);
     }
 
-    public boolean isDuplicatedUsername(String username) {
-        return userRepository.findByUsername(username) != null;
+    public boolean isDuplicatedBookname(String bookname) {
+        return bookRepository.findByBookName(bookname) != null;
     }
 
-    public List<User> getUserAll() {
-        return userRepository.findAll();
+    public List<Book> getBookAll() {
+        return bookRepository.findAll();
     }
 }

@@ -9,6 +9,7 @@ import java.io.IOException;
 
 @WebServlet("/book/bookregister")
 public class BookRegisterController extends HttpServlet {
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.getRequestDispatcher("/WEB-INF/views/bookregister.jsp").forward(req,resp);

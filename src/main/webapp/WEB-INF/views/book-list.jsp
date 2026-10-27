@@ -43,7 +43,7 @@
         %>
         <tr>
             <td><%=book.getId()%></td>
-            <td><%=book.getBookName()%>></td>
+            <td><%=book.getBookName()%></td>
             <td><%=book.getPrice()%></td>
         </tr>
         <%
