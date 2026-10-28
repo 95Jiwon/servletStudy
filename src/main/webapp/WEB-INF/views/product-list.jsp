@@ -44,7 +44,6 @@
     </table>
 
     <script>
-
         async function getProductList() {
             const response = await fetch("http://localhost:8080/api/products", {
                 method: "GET", // GET은 데이터를 가지고 올 때 사용한다.

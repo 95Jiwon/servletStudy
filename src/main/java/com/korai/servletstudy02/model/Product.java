@@ -1,4 +1,4 @@
-package com.korai.servletstudy02.model.service;
+package com.korai.servletstudy02.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
