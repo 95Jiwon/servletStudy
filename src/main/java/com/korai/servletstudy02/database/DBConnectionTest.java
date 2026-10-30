@@ -1,6 +1,10 @@
 package com.korai.servletstudy02.database;
 
+import com.korai.servletstudy02.entity.Menu;
+
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DBConnectionTest {
     public static void main(String[] args) {
@@ -13,6 +17,8 @@ public class DBConnectionTest {
 
         String url = String.format("%s://%s:%s/%s", protocol, host, port, databaseName);
         // jdbc:mysql://localhost:3308/hanip_delivery02
+
+        List<Menu> menus = new ArrayList<>();
 
         try (Connection connection = DriverManager.getConnection(url, username, password)){
             //1번째는 url(주소), 2번째는 username(유저명), 3번째는 password(비밀번호) 넣는다.
@@ -31,18 +37,10 @@ FROM
                         rs.getString("name"),
                         rs.getInt("price"),
                         rs.getString("description"),
-                        rs.getBoolean("isSignature"),
-                        rs.getBoolean("isSoldOut")
+                        rs.getBoolean("is_signature"),
+                        rs.getBoolean("is_sold_out")
                 );
                         menus.add(menu);
-                        /*
-                        private String name;
-                        private int price;
-                        private String description;
-                        private boolean isSignature;
-                        private boolean isSoleOut;
-                         */
-
 //                System.out.println(rs.getString("menu_id"));
 //                System.out.println(rs.getString("restaurant_id"));
 //                System.out.println(rs.getString("name"));
